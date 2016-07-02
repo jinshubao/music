@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="TOP_CENTER" styleClass="local-music" stylesheets="@../styles/Style.css" VBox.vgrow="ALWAYS" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jean.music.controller.LocalMusicController">
+    <children>
+        <HBox alignment="CENTER_LEFT" prefHeight="50.0">
+            <children>
+                <HBox alignment="CENTER_LEFT" spacing="10.0" HBox.hgrow="ALWAYS">
+                    <children>
+                        <Label text="本地音乐" />
+                        <Label fx:id="musicCount" text="0首" />
+                        <Hyperlink fx:id="chooseDirectory" text="选择目录" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_RIGHT">
+                    <children>
+                        <ToggleButton mnemonicParsing="false" selected="true">
+                            <toggleGroup>
+                                <ToggleGroup fx:id="musicTypes" />
+                            </toggleGroup>
+                        </ToggleButton>
+                        <ToggleButton mnemonicParsing="false" toggleGroup="$musicTypes" />
+                        <ToggleButton mnemonicParsing="false" toggleGroup="$musicTypes" />
+                        <ToggleButton mnemonicParsing="false" toggleGroup="$musicTypes" />
+                    </children>
+                </HBox>
+            </children>
+        </HBox>
+        <HBox prefHeight="50.0">
+            <children>
+                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                    <children>
+                        <Button fx:id="playAll" mnemonicParsing="false" styleClass="play-all" text="全部播放" />
+                        <Button fx:id="addAllToPlayList" mnemonicParsing="false" styleClass="add-all-to-play-list" text="+" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+                    <children>
+                        <TextField fx:id="searchBox" promptText="搜索本地音乐" />
+                    </children>
+                </HBox>
+            </children>
+        </HBox>
+        <TableView fx:id="localMusicList" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn maxWidth="75.0" prefWidth="50.0" resizable="false" />
+                <TableColumn maxWidth="500.0" minWidth="50.0" prefWidth="75.0" text="标题" />
+                <TableColumn maxWidth="500.0" minWidth="50.0" prefWidth="75.0" text="歌手" />
+                <TableColumn maxWidth="500.0" minWidth="50.0" prefWidth="75.0" text="专辑" />
+                <TableColumn maxWidth="500.0" minWidth="50.0" prefWidth="75.0" text="时长" />
+                <TableColumn maxWidth="500.0" prefWidth="75.0" text="大小" />
+            </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+        </TableView>
+    </children>
+</VBox>

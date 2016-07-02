@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane stylesheets="@../styles/Style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jean.music.controller.MainController">
+    <top>
+        <HBox fx:id="header" alignment="CENTER_LEFT" prefHeight="50.0" styleClass="header" BorderPane.alignment="CENTER_LEFT">
+            <children>
+                <HBox alignment="CENTER_LEFT" maxWidth="180.0" prefWidth="180.0" HBox.hgrow="NEVER">
+                    <children>
+                        <Hyperlink styleClass="logo" text="音乐播放器" />
+                    </children>
+                </HBox>
+                <HBox alignment="CENTER" maxWidth="250.0" prefWidth="250.0" spacing="10.0" styleClass="search-box" HBox.hgrow="ALWAYS">
+                    <children>
+                  <HBox alignment="CENTER_LEFT">
+                     <children>
+                              <Button fx:id="prevStageBtn" mnemonicParsing="false" text="&lt;" />
+                              <Button fx:id="nextStageBtn" mnemonicParsing="false" text="&gt;" />
+                     </children>
+                  </HBox>
+                        <TextField fx:id="searchBox" promptText="搜索音乐、歌手、歌词、用户" HBox.hgrow="ALWAYS" />
+                    </children>
+                </HBox>
+                  <HBox alignment="CENTER_RIGHT" spacing="10.0" styleClass="system-btns" HBox.hgrow="ALWAYS">
+                      <children>
+                          <Button fx:id="miniBtn" mnemonicParsing="false" />
+                          <Button fx:id="hideBtn" mnemonicParsing="false" styleClass="min-btn" />
+                          <Button fx:id="maxBtn" mnemonicParsing="false" styleClass="max-btn" />
+                          <Button fx:id="closeBtn" mnemonicParsing="false" styleClass="close-btn" />
+                      </children>
+                  </HBox>
+            </children>
+        </HBox>
+    </top>
+    <bottom>
+        <HBox fx:id="footer" alignment="CENTER_LEFT" maxHeight="50.0" minHeight="50.0" prefHeight="50.0" spacing="10.0" styleClass="footer" BorderPane.alignment="CENTER_LEFT">
+            <children>
+                <HBox alignment="CENTER" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" spacing="10.0" styleClass="play-ctrs">
+                    <children>
+                        <Button fx:id="prevMusic" mnemonicParsing="false" styleClass="prev-btn" />
+                        <Button fx:id="playMusicBtn" mnemonicParsing="false" styleClass="play-pause-btn-play" />
+                        <Button fx:id="nextMusicBtn" mnemonicParsing="false" styleClass="next-btn" />
+                    </children>
+                </HBox>
+                  <Label fx:id="playTime" text="00:00" />
+                  <Slider fx:id="playProgress" HBox.hgrow="ALWAYS" />
+                  <Label fx:id="durationTime" text="00:00" />
+                <HBox alignment="CENTER_RIGHT" spacing="10.0">
+               <children>
+                  <Button mnemonicParsing="false" prefWidth="23.0" styleClass="volumne-label" />
+                  <Slider fx:id="volume" />
+               </children></HBox>
+            </children>
+        </HBox>
+    </bottom>
+    <center>
+        <SplitPane dividerPositions="0.15" style="-fx-background-color: inhirdent;" BorderPane.alignment="CENTER">
+            <items>
+                <VBox id="left-nav" fx:id="leftNav" minWidth="200.0" prefWidth="200.0" styleClass="left-nav" SplitPane.resizableWithParent="false">
+                    <children>
+                  <VBox spacing="10.0" VBox.vgrow="ALWAYS">
+                     <children>
+                              <Label text="推荐" />
+                              <VBox styleClass="recommend">
+                                  <children>
+                                      <Hyperlink fx:id="findMusic" styleClass="find-music" text="发现音乐" />
+                                      <Hyperlink fx:id="myFM" styleClass="my-fm" text="私人FM" />
+                                      <Hyperlink fx:id="mv" styleClass="mv" text="MV" />
+                                      <Hyperlink fx:id="friend" styleClass="friend" text="朋友" />
+                                  </children>
+                              </VBox>
+                              <Label text="我的音乐" />
+                              <VBox styleClass="my-music">
+                                  <children>
+                                      <Hyperlink fx:id="localMusic" text="本地音乐" />
+                                      <Hyperlink fx:id="downloadManage" text="下载管理" />
+                                      <Hyperlink fx:id="myCloudMusic" text="我的音乐云盘" />
+                                      <Hyperlink fx:id="mySinger" text="我的歌手" />
+                                  </children>
+                              </VBox>
+                              <Label text="创建歌单" />
+                              <VBox styleClass="create-list">
+                                  <children>
+                                      <Hyperlink fx:id="myfavorite" text="我喜欢的音乐" />
+                                      <Hyperlink fx:id="hiMusic" text="hi歌" />
+                                  </children>
+                              </VBox>
+                     </children>
+                  </VBox>
+                        <HBox alignment="CENTER_LEFT" maxHeight="60.0" minHeight="60.0" prefHeight="60.0" styleClass="music-info" VBox.vgrow="NEVER">
+                            <children>
+                                <HBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                                            <children>
+                                                <Label fx:id="musicName" text="--" HBox.hgrow="ALWAYS" />
+                                                <Label fx:id="singerName" text="--" />
+                                            </children>
+                                        </VBox>
+                                        <Button fx:id="favoriteBtn" maxHeight="20.0" maxWidth="20.0" minHeight="20.0" minWidth="20.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="20.0" styleClass="favor-btn" />
+                                    </children>
+                                </HBox>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+                <VBox fx:id="content" alignment="TOP_CENTER">
+                </VBox>
+            </items>
+        </SplitPane>
+    </center>
+</BorderPane>
