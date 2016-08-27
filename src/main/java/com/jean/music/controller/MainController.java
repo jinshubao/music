@@ -152,12 +152,9 @@ public class MainController extends BaseController {
             }
         });
 
-        localMusic.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                changeContent("localMusic");
-            }
-        });
+        localMusic.setOnAction(event ->
+            changeContent("localMusic")
+        );
         changeContent("localMusic");
     }
 
